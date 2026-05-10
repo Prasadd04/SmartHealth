@@ -1,0 +1,83 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Professional Polish Palette */
+  --color-bg-ivory: #FDFBF7;
+  --color-polish-primary: #4F46E5;
+  --color-polish-secondary: #059669;
+  --color-polish-muted: #94A3B8;
+  --color-polish-text: #334155;
+  --color-polish-heading: #0F172A;
+  --color-polish-border: rgba(15, 23, 42, 0.06);
+}
+
+@theme inline {
+    --font-heading: var(--font-serif);
+    --font-sans: 'Inter', sans-serif;
+    
+    --color-background: var(--bg-ivory);
+    --color-foreground: var(--polish-text);
+    --color-card: #ffffff;
+    --color-card-foreground: var(--polish-text);
+    --color-primary: var(--polish-primary);
+    --color-primary-foreground: #ffffff;
+    --color-secondary: rgba(5, 150, 105, 0.1);
+    --color-secondary-foreground: var(--polish-secondary);
+    --color-muted: #f8f9fa;
+    --color-muted-foreground: var(--polish-muted);
+    --color-accent: #ffffff;
+    --color-accent-foreground: var(--polish-heading);
+    --color-destructive: #ef4444;
+    --color-destructive-foreground: #ffffff;
+    --color-border: var(--polish-border);
+    --color-input: var(--polish-border);
+    --color-ring: var(--polish-primary);
+    --radius: 1.5rem; /* 24px */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+  h1, h2, h3, h4, .font-serif {
+    @apply font-serif text-polish-heading font-bold;
+  }
+}
+
+.tech-tag {
+  @apply font-mono text-[10px] bg-slate-100 px-2 py-0.5 rounded text-slate-500 uppercase;
+}
+
+.metric-card {
+  @apply bg-white p-6 rounded-3xl border border-black/5 hover:shadow-xl hover:shadow-black/[0.02] transition-all;
+}
+
+
+/* Animations from Designer Request */
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(2deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.cursor-glow {
+  background: radial-gradient(circle, rgba(12, 74, 110, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 9999;
+}

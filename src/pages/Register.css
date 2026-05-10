@@ -1,0 +1,923 @@
+/* ============================================================
+   SmartHealth AI — Premium Register Page Styles
+   Editorial medical luxury: Headspace × Mayo Clinic
+   Mirrors Login.css with register- prefix
+   ============================================================ */
+
+/* ── Layout ── */
+.register-page {
+  display: flex;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #0B1437;
+}
+
+/* ── LEFT PANEL (60%) ── */
+.register-left {
+  position: relative;
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0B1437;
+  overflow: hidden;
+}
+
+/* ── RIGHT PANEL (40%) ── */
+.register-right {
+  position: relative;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F5F0E8;
+  padding: 3rem 2.5rem;
+  overflow-y: auto;
+}
+
+/* ── Mobile Header (hidden on desktop) ── */
+.register-mobile-header {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  background: #0B1437;
+  color: #F5F0E8;
+  align-items: center;
+  gap: 10px;
+  padding: 0 20px;
+  z-index: 100;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: -0.02em;
+}
+
+/* ============================================================
+   PARTICLES — pure CSS drifting dots
+   ============================================================ */
+.register-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.register-particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: rgba(245, 240, 232, 0.12);
+  border-radius: 50%;
+  animation: registerParticleDrift linear infinite;
+}
+
+@keyframes registerParticleDrift {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120px) translateX(30px);
+    opacity: 0;
+  }
+}
+
+/* ============================================================
+   ROBOT — Pure CSS medical robot
+   ============================================================ */
+.register-robot-wrapper {
+  position: relative;
+  z-index: 2;
+  animation: registerRobotFloat 6s ease-in-out infinite;
+}
+
+@keyframes registerRobotFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-18px) rotate(1.5deg); }
+}
+
+.register-robot {
+  position: relative;
+  width: 220px;
+  height: 320px;
+}
+
+/* Head */
+.register-robot-head {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(145deg, #c8d6e5, #8395a7);
+  border-radius: 18px;
+  border: 3px solid #576574;
+  overflow: visible;
+  z-index: 3;
+}
+
+/* Visor */
+.register-robot-visor {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  width: 100%;
+  height: 28px;
+  background: #0B1437;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.register-robot-visor-glow {
+  width: 40px;
+  height: 8px;
+  background: #1D9E75;
+  border-radius: 99px;
+  box-shadow:
+    0 0 12px #1D9E75,
+    0 0 30px rgba(29, 158, 117, 0.5),
+    0 0 60px rgba(29, 158, 117, 0.2);
+  animation: registerVisorPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes registerVisorPulse {
+  0%, 100% {
+    opacity: 0.7;
+    box-shadow:
+      0 0 12px #1D9E75,
+      0 0 30px rgba(29, 158, 117, 0.5),
+      0 0 60px rgba(29, 158, 117, 0.2);
+  }
+  50% {
+    opacity: 1;
+    box-shadow:
+      0 0 20px #1D9E75,
+      0 0 45px rgba(29, 158, 117, 0.6),
+      0 0 80px rgba(29, 158, 117, 0.3);
+  }
+}
+
+/* Ears */
+.register-robot-ear {
+  position: absolute;
+  top: 24px;
+  width: 12px;
+  height: 40px;
+  background: #576574;
+  border-radius: 99px;
+}
+.register-robot-ear--left { left: -8px; }
+.register-robot-ear--right { right: -8px; }
+
+/* Antenna */
+.register-robot-antenna {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 18px;
+  background: #576574;
+}
+
+.register-robot-antenna-tip {
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  background: #1D9E75;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(29, 158, 117, 0.6);
+  animation: registerVisorPulse 2.5s ease-in-out infinite 0.5s;
+}
+
+/* Neck */
+.register-robot-neck {
+  position: absolute;
+  top: 95px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 20px;
+  background: linear-gradient(180deg, #8395a7, #a0aec0);
+  z-index: 2;
+}
+
+/* Body */
+.register-robot-body {
+  position: absolute;
+  top: 108px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 180px;
+  background: linear-gradient(170deg, #ffffff 0%, #f0ede6 100%);
+  border-radius: 22px 22px 12px 12px;
+  border: 3px solid #e2ddd3;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Lapels */
+.register-robot-lapel {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  border-bottom: none;
+}
+.register-robot-lapel--left {
+  left: 0;
+  border-right: 1px solid rgba(0, 0, 0, 0.04);
+}
+.register-robot-lapel--right {
+  right: 0;
+  border-left: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+/* Tie */
+.register-robot-tie {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+.register-robot-tie-knot {
+  width: 22px;
+  height: 12px;
+  background: #0B1437;
+  border-radius: 0 0 8px 8px;
+}
+.register-robot-tie-tail {
+  width: 12px;
+  height: 65px;
+  background: #0B1437;
+  border-radius: 0 0 6px 6px;
+  clip-path: polygon(15% 0%, 85% 0%, 100% 100%, 0% 100%);
+}
+
+/* Pocket */
+.register-robot-pocket {
+  position: absolute;
+  top: 50px;
+  left: 14px;
+  width: 36px;
+  height: 42px;
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-top: none;
+  border-radius: 0 0 6px 6px;
+}
+.register-robot-pocket-pen {
+  position: absolute;
+  top: 4px;
+  left: 8px;
+  width: 20px;
+  height: 3px;
+  background: #1D9E75;
+  border-radius: 2px;
+}
+
+/* Badge */
+.register-robot-badge {
+  position: absolute;
+  top: 50px;
+  right: 14px;
+  width: 32px;
+  height: 38px;
+  background: #0B1437;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.register-robot-badge-line {
+  width: 18px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 2px;
+}
+.register-robot-badge-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #1D9E75;
+  animation: registerVisorPulse 2.5s ease-in-out infinite 1s;
+}
+
+/* Stethoscope */
+.register-robot-stethoscope {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 20px;
+  border: 3px solid #1D9E75;
+  border-top: none;
+  border-radius: 0 0 20px 20px;
+  opacity: 0.5;
+}
+
+/* Arms */
+.register-robot-arm {
+  position: absolute;
+  top: 130px;
+  width: 18px;
+  height: 90px;
+  background: linear-gradient(180deg, #c8d6e5, #a0aec0);
+  border-radius: 10px;
+  z-index: 0;
+}
+.register-robot-arm--left {
+  left: 18px;
+  transform: rotate(8deg);
+}
+.register-robot-arm--right {
+  right: 18px;
+  transform: rotate(-8deg);
+}
+
+/* ============================================================
+   FLOATING STAT CARDS
+   ============================================================ */
+.register-float-card {
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 14px 18px;
+  color: #F5F0E8;
+  min-width: 180px;
+}
+
+.register-float-card-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(29, 158, 117, 0.15);
+  color: #1D9E75;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.register-float-card-icon--teal {
+  background: rgba(14, 165, 233, 0.15);
+  color: #0ea5e9;
+}
+.register-float-card-icon--amber {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+}
+
+.register-float-card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.register-float-card-value {
+  font-family: "Playfair Display", serif;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 1.1;
+}
+
+.register-float-card-label {
+  font-size: 11px;
+  opacity: 0.6;
+  letter-spacing: 0.02em;
+  margin-top: 2px;
+}
+
+/* Positions & individual float rhythms */
+.register-float-card--1 {
+  top: 14%;
+  left: 8%;
+  animation: registerFloat1 3s ease-in-out infinite;
+}
+.register-float-card--2 {
+  bottom: 28%;
+  right: 8%;
+  animation: registerFloat2 4s ease-in-out infinite;
+}
+.register-float-card--3 {
+  bottom: 12%;
+  left: 15%;
+  animation: registerFloat3 5s ease-in-out infinite;
+}
+
+@keyframes registerFloat1 {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+@keyframes registerFloat2 {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
+}
+@keyframes registerFloat3 {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* ── Wordmark ── */
+.register-wordmark {
+  position: absolute;
+  bottom: 36px;
+  left: 40px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #F5F0E8;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  z-index: 10;
+}
+.register-wordmark svg {
+  opacity: 0.7;
+}
+
+/* ============================================================
+   FORM CONTAINER — right panel
+   ============================================================ */
+.register-form-container {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Status badge */
+.register-status-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #1D9E75;
+  font-weight: 600;
+  background: rgba(29, 158, 117, 0.08);
+  border: 1px solid rgba(29, 158, 117, 0.15);
+  padding: 6px 14px;
+  border-radius: 99px;
+  width: fit-content;
+  align-self: flex-end;
+}
+
+.register-status-dot {
+  position: relative;
+  display: inline-flex;
+  width: 8px;
+  height: 8px;
+}
+.register-status-dot-ping {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #1D9E75;
+  animation: registerPing 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+.register-status-dot-core {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #1D9E75;
+}
+
+@keyframes registerPing {
+  75%, 100% { transform: scale(2); opacity: 0; }
+}
+
+/* Title / Subtitle */
+.register-title {
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  font-weight: 800;
+  color: #0B1437;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.register-subtitle {
+  font-size: 14px;
+  color: #8395a7;
+  margin: 6px 0 0;
+  font-weight: 400;
+}
+
+/* ── Form ── */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Field groups */
+.register-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.register-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #576574;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.register-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 1.5px solid #e2ddd3;
+  border-radius: 14px;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+  overflow: hidden;
+}
+
+.register-input-wrapper:focus-within {
+  border-color: #1D9E75;
+  box-shadow: 0 0 0 3px rgba(29, 158, 117, 0.1);
+}
+
+.register-input-wrapper--error {
+  border-color: #D85A30 !important;
+  box-shadow: 0 0 0 3px rgba(216, 90, 48, 0.1) !important;
+}
+
+.register-input-icon {
+  position: absolute;
+  left: 16px;
+  color: #a0aec0;
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+.register-input-wrapper:focus-within .register-input-icon {
+  color: #1D9E75;
+}
+
+.register-input-wrapper--error .register-input-icon {
+  color: #D85A30;
+}
+
+.register-input {
+  width: 100%;
+  padding: 14px 16px 14px 48px;
+  font-size: 15px;
+  color: #0B1437;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+.register-input::placeholder {
+  color: #c0bbb0;
+}
+
+.register-eye-btn {
+  position: absolute;
+  right: 14px;
+  background: none;
+  border: none;
+  color: #a0aec0;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 200ms;
+}
+.register-eye-btn:hover {
+  color: #576574;
+}
+
+/* Error text */
+.register-error-text {
+  font-size: 12px;
+  color: #D85A30;
+  font-weight: 500;
+  padding-left: 2px;
+}
+
+/* Shake animation */
+.register-shake {
+  animation: registerShake 0.4s ease-in-out;
+}
+
+@keyframes registerShake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(6px); }
+}
+
+/* ── Password Strength Meter ── */
+.register-strength-bar {
+  display: flex;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+.register-strength-segment {
+  flex: 1;
+  height: 4px;
+  border-radius: 99px;
+  background: #e2ddd3;
+  transition: background 300ms ease;
+}
+
+.register-strength-segment--weak {
+  background: #D85A30;
+}
+.register-strength-segment--fair {
+  background: #f59e0b;
+}
+.register-strength-segment--good {
+  background: #0ea5e9;
+}
+.register-strength-segment--strong {
+  background: #1D9E75;
+}
+
+.register-strength-label {
+  font-size: 11px;
+  font-weight: 600;
+  margin-top: 4px;
+  transition: color 300ms ease;
+}
+
+.register-strength-label--weak { color: #D85A30; }
+.register-strength-label--fair { color: #f59e0b; }
+.register-strength-label--good { color: #0ea5e9; }
+.register-strength-label--strong { color: #1D9E75; }
+
+/* ── Terms Checkbox ── */
+.register-terms-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  color: #576574;
+  cursor: pointer;
+  user-select: none;
+  line-height: 1.4;
+}
+
+.register-checkbox {
+  width: 16px;
+  height: 16px;
+  border-radius: 5px;
+  accent-color: #0B1437;
+  cursor: pointer;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.register-terms-link {
+  color: #0B1437;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 200ms;
+}
+.register-terms-link:hover {
+  color: #1D9E75;
+}
+
+/* ── Sign Up Button ── */
+.register-submit-btn {
+  position: relative;
+  width: 100%;
+  height: 52px;
+  border: none;
+  border-radius: 14px;
+  background: #0B1437;
+  color: #F5F0E8;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: "Inter", system-ui, sans-serif;
+  cursor: pointer;
+  transition: transform 200ms ease, box-shadow 200ms ease, background 200ms ease;
+  overflow: hidden;
+}
+
+.register-submit-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(11, 20, 55, 0.25);
+}
+
+.register-submit-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.register-submit-btn:disabled {
+  cursor: not-allowed;
+}
+
+.register-submit-btn--loading {
+  animation: registerBtnPulse 1.5s ease-in-out infinite;
+}
+
+.register-submit-btn--success {
+  background: #1D9E75 !important;
+  animation: none;
+}
+
+@keyframes registerBtnPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+.register-btn-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Spinner */
+.register-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2.5px solid rgba(245, 240, 232, 0.3);
+  border-top-color: #F5F0E8;
+  border-radius: 50%;
+  animation: registerSpin 0.65s linear infinite;
+}
+
+@keyframes registerSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Divider ── */
+.register-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.register-divider-line {
+  flex: 1;
+  height: 1px;
+  background: #e2ddd3;
+}
+
+.register-divider-text {
+  font-size: 12px;
+  color: #a0aec0;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+/* ── Social Buttons ── */
+.register-social-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.register-social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 48px;
+  background: #fff;
+  border: 1.5px solid #e2ddd3;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0B1437;
+  font-family: "Inter", system-ui, sans-serif;
+  cursor: pointer;
+  transition: border-color 200ms, box-shadow 200ms, transform 200ms;
+}
+
+.register-social-btn:hover {
+  border-color: #c0bbb0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transform: translateY(-1px);
+}
+
+/* ── Login link ── */
+.register-login-text {
+  text-align: center;
+  font-size: 13px;
+  color: #8395a7;
+  margin: 0;
+}
+
+.register-login-link {
+  color: #0B1437;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 200ms;
+}
+.register-login-link:hover {
+  color: #1D9E75;
+}
+
+/* ── HIPAA footer ── */
+.register-hipaa {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #a0aec0;
+  padding-top: 8px;
+}
+
+/* ============================================================
+   RESPONSIVE — stacks to single column on mobile
+   Left panel collapses to slim navy header bar with logo
+   ============================================================ */
+@media (max-width: 900px) {
+  .register-page {
+    flex-direction: column;
+  }
+
+  .register-left {
+    display: none;
+  }
+
+  .register-mobile-header {
+    display: flex;
+  }
+
+  .register-right {
+    width: 100%;
+    min-height: 100vh;
+    padding: 80px 24px 40px;
+  }
+
+  .register-form-container {
+    max-width: 440px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .register-right {
+    padding: 76px 18px 32px;
+  }
+
+  .register-title {
+    font-size: 26px;
+  }
+
+  .register-submit-btn {
+    height: 48px;
+  }
+
+  .register-social-btn {
+    height: 44px;
+    font-size: 13px;
+  }
+}
+
+/* ── Large screens — extra breathing room ── */
+@media (min-width: 1400px) {
+  .register-form-container {
+    max-width: 420px;
+  }
+
+  .register-title {
+    font-size: 36px;
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "SmartHealth AI",
+  "description": "Multimodal healthcare diagnostic application with X-Ray CV, Symptom NLP, and Vitals LSTM analysis.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["AI Diagnostics", "Medical Imaging", "Real-time Monitoring"]
+}
